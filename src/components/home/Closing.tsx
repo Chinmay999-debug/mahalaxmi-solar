@@ -1,5 +1,12 @@
 import { Reveal } from "@/components/Reveal";
 import dusk from "@/assets/cta-dusk.jpg";
+import {
+  PHONE_DISPLAY,
+  PHONE_HREF,
+  WHATSAPP_HREF,
+  EMAIL_DISPLAY,
+  EMAIL_HREF,
+} from "@/lib/contact";
 
 export function FinalCTA() {
   return (
