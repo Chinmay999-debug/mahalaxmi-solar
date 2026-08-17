@@ -46,25 +46,55 @@ export function Nav() {
           ))}
         </nav>
 
-        <a
-          href="#quote"
-          className={`hidden border px-6 py-3 text-[0.78rem] font-semibold tracking-[0.06em] uppercase transition-all duration-500 md:inline-block ${
-            solid
-              ? "border-foreground/20 text-foreground hover:border-foreground hover:bg-navy hover:text-softwhite"
-              : "border-softwhite/40 text-softwhite hover:border-gold hover:bg-gold hover:text-navy"
-          }`}
-        >
-          Get a Free Quote
-        </a>
+        <div className="hidden items-center gap-6 md:flex">
+          <a
+            href={PHONE_HREF}
+            className={`text-[0.82rem] font-medium tracking-[0.01em] transition-colors duration-300 ${
+              solid ? "text-foreground hover:text-gold" : "text-softwhite/85 hover:text-gold"
+            }`}
+          >
+            {PHONE_DISPLAY}
+          </a>
+          <a
+            href={WHATSAPP_HREF}
+            target="_blank"
+            rel="noreferrer"
+            className={`text-[0.82rem] font-medium transition-colors duration-300 ${
+              solid ? "text-muted-foreground hover:text-foreground" : "text-softwhite/70 hover:text-softwhite"
+            }`}
+          >
+            WhatsApp
+          </a>
+          <a
+            href="#quote"
+            className={`border px-6 py-3 text-[0.78rem] font-semibold tracking-[0.06em] uppercase transition-all duration-500 ${
+              solid
+                ? "border-foreground/20 text-foreground hover:border-foreground hover:bg-navy hover:text-softwhite"
+                : "border-softwhite/40 text-softwhite hover:border-gold hover:bg-gold hover:text-navy"
+            }`}
+          >
+            Get a Free Quote
+          </a>
+        </div>
 
-        <a
-          href="#quote"
-          className={`text-[0.78rem] font-semibold tracking-[0.06em] uppercase md:hidden ${
-            solid ? "text-foreground" : "text-softwhite"
-          }`}
-        >
-          Quote
-        </a>
+        <div className="flex items-center gap-5 md:hidden">
+          <a
+            href={PHONE_HREF}
+            className={`text-[0.78rem] font-semibold tracking-[0.06em] uppercase ${
+              solid ? "text-foreground" : "text-softwhite"
+            }`}
+          >
+            Call
+          </a>
+          <a
+            href={WHATSAPP_HREF}
+            target="_blank"
+            rel="noreferrer"
+            className="text-[0.78rem] font-semibold tracking-[0.06em] text-gold uppercase"
+          >
+            WhatsApp
+          </a>
+        </div>
       </div>
     </header>
   );
