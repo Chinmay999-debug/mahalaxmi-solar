@@ -37,10 +37,18 @@ export function FinalCTA() {
               Get a Free Solar Quote
             </a>
             <a
-              href="#quote"
+              href={PHONE_HREF}
               className="link-underline text-[0.9rem] font-medium text-softwhite/85 hover:text-softwhite"
             >
               Talk to an Expert <span aria-hidden>→</span>
+            </a>
+            <a
+              href={WHATSAPP_HREF}
+              target="_blank"
+              rel="noreferrer"
+              className="link-underline text-[0.9rem] font-medium text-softwhite/85 hover:text-softwhite"
+            >
+              WhatsApp Us <span aria-hidden>→</span>
             </a>
           </div>
         </Reveal>
@@ -50,9 +58,31 @@ export function FinalCTA() {
 }
 
 const cols = [
-  { title: "Company", items: ["Solutions", "Projects", "About", "Process", "Contact"] },
-  { title: "Contact", items: ["Phone", "WhatsApp", "Email"] },
-  { title: "Social", items: ["Instagram", "LinkedIn"] },
+  {
+    title: "Company",
+    items: [
+      { label: "Solutions", href: "#solutions" },
+      { label: "Projects", href: "#projects" },
+      { label: "About", href: "#about" },
+      { label: "Process", href: "#process" },
+      { label: "Contact", href: PHONE_HREF },
+    ],
+  },
+  {
+    title: "Contact",
+    items: [
+      { label: PHONE_DISPLAY, href: PHONE_HREF },
+      { label: "WhatsApp", href: WHATSAPP_HREF },
+      { label: EMAIL_DISPLAY, href: EMAIL_HREF },
+    ],
+  },
+  {
+    title: "Social",
+    items: [
+      { label: "Instagram", href: "#top" },
+      { label: "LinkedIn", href: "#top" },
+    ],
+  },
 ];
 
 export function Footer() {
