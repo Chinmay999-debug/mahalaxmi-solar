@@ -1,5 +1,12 @@
 import { Reveal } from "@/components/Reveal";
 import dusk from "@/assets/cta-dusk.jpg";
+import {
+  PHONE_DISPLAY,
+  PHONE_HREF,
+  WHATSAPP_HREF,
+  EMAIL_DISPLAY,
+  EMAIL_HREF,
+} from "@/lib/contact";
 
 export function FinalCTA() {
   return (
@@ -37,10 +44,18 @@ export function FinalCTA() {
               Get a Free Solar Quote
             </a>
             <a
-              href="#quote"
+              href={PHONE_HREF}
               className="link-underline text-[0.9rem] font-medium text-softwhite/85 hover:text-softwhite"
             >
               Talk to an Expert <span aria-hidden>→</span>
+            </a>
+            <a
+              href={WHATSAPP_HREF}
+              target="_blank"
+              rel="noreferrer"
+              className="link-underline text-[0.9rem] font-medium text-softwhite/85 hover:text-softwhite"
+            >
+              WhatsApp Us <span aria-hidden>→</span>
             </a>
           </div>
         </Reveal>
@@ -50,9 +65,31 @@ export function FinalCTA() {
 }
 
 const cols = [
-  { title: "Company", items: ["Solutions", "Projects", "About", "Process", "Contact"] },
-  { title: "Contact", items: ["Phone", "WhatsApp", "Email"] },
-  { title: "Social", items: ["Instagram", "LinkedIn"] },
+  {
+    title: "Company",
+    items: [
+      { label: "Solutions", href: "#solutions" },
+      { label: "Projects", href: "#projects" },
+      { label: "About", href: "#about" },
+      { label: "Process", href: "#process" },
+      { label: "Contact", href: PHONE_HREF },
+    ],
+  },
+  {
+    title: "Contact",
+    items: [
+      { label: PHONE_DISPLAY, href: PHONE_HREF },
+      { label: "WhatsApp", href: WHATSAPP_HREF },
+      { label: EMAIL_DISPLAY, href: EMAIL_HREF },
+    ],
+  },
+  {
+    title: "Social",
+    items: [
+      { label: "Instagram", href: "#top" },
+      { label: "LinkedIn", href: "#top" },
+    ],
+  },
 ];
 
 export function Footer() {
@@ -73,12 +110,15 @@ export function Footer() {
               <div className="eyebrow text-softwhite/40">{c.title}</div>
               <ul className="mt-5 space-y-3">
                 {c.items.map((i) => (
-                  <li key={i}>
+                  <li key={i.label}>
                     <a
-                      href="#top"
+                      href={i.href}
+                      {...(i.href.startsWith("http")
+                        ? { target: "_blank", rel: "noreferrer" }
+                        : {})}
                       className="text-[0.92rem] text-softwhite/75 transition-colors hover:text-gold"
                     >
-                      {i}
+                      {i.label}
                     </a>
                   </li>
                 ))}
@@ -105,12 +145,26 @@ export function Footer() {
 
 export function MobileQuoteBar() {
   return (
-    <div className="fixed inset-x-0 bottom-0 z-40 border-t border-softwhite/15 bg-navy/95 px-5 py-3 backdrop-blur-sm md:hidden">
+    <div className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-[1fr_1fr_1.4fr] border-t border-softwhite/15 bg-navy/95 backdrop-blur-sm md:hidden">
+      <a
+        href={PHONE_HREF}
+        className="border-r border-softwhite/15 py-4 text-center text-[0.74rem] font-semibold tracking-[0.08em] text-softwhite/85 uppercase"
+      >
+        Call
+      </a>
+      <a
+        href={WHATSAPP_HREF}
+        target="_blank"
+        rel="noreferrer"
+        className="border-r border-softwhite/15 py-4 text-center text-[0.74rem] font-semibold tracking-[0.08em] text-softwhite/85 uppercase"
+      >
+        WhatsApp
+      </a>
       <a
         href="#quote"
-        className="block w-full bg-gold py-3.5 text-center text-[0.8rem] font-semibold tracking-[0.08em] text-navy uppercase"
+        className="bg-gold py-4 text-center text-[0.74rem] font-semibold tracking-[0.08em] text-navy uppercase"
       >
-        Get Free Quote
+        Free Quote
       </a>
     </div>
   );
