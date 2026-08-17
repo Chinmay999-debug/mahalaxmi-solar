@@ -110,12 +110,15 @@ export function Footer() {
               <div className="eyebrow text-softwhite/40">{c.title}</div>
               <ul className="mt-5 space-y-3">
                 {c.items.map((i) => (
-                  <li key={i}>
+                  <li key={i.label}>
                     <a
-                      href="#top"
+                      href={i.href}
+                      {...(i.href.startsWith("http")
+                        ? { target: "_blank", rel: "noreferrer" }
+                        : {})}
                       className="text-[0.92rem] text-softwhite/75 transition-colors hover:text-gold"
                     >
-                      {i}
+                      {i.label}
                     </a>
                   </li>
                 ))}
@@ -142,12 +145,26 @@ export function Footer() {
 
 export function MobileQuoteBar() {
   return (
-    <div className="fixed inset-x-0 bottom-0 z-40 border-t border-softwhite/15 bg-navy/95 px-5 py-3 backdrop-blur-sm md:hidden">
+    <div className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-[1fr_1fr_1.4fr] border-t border-softwhite/15 bg-navy/95 backdrop-blur-sm md:hidden">
+      <a
+        href={PHONE_HREF}
+        className="border-r border-softwhite/15 py-4 text-center text-[0.74rem] font-semibold tracking-[0.08em] text-softwhite/85 uppercase"
+      >
+        Call
+      </a>
+      <a
+        href={WHATSAPP_HREF}
+        target="_blank"
+        rel="noreferrer"
+        className="border-r border-softwhite/15 py-4 text-center text-[0.74rem] font-semibold tracking-[0.08em] text-softwhite/85 uppercase"
+      >
+        WhatsApp
+      </a>
       <a
         href="#quote"
-        className="block w-full bg-gold py-3.5 text-center text-[0.8rem] font-semibold tracking-[0.08em] text-navy uppercase"
+        className="bg-gold py-4 text-center text-[0.74rem] font-semibold tracking-[0.08em] text-navy uppercase"
       >
-        Get Free Quote
+        Free Quote
       </a>
     </div>
   );
