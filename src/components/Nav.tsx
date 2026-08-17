@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { PHONE_DISPLAY, PHONE_HREF, WHATSAPP_HREF } from "@/lib/contact";
 
 const links = ["Solutions", "Projects", "About", "Process"];
 
