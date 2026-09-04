@@ -24,11 +24,16 @@ export function Nav() {
       <div className="mx-auto flex max-w-[1440px] items-center justify-between px-6 md:px-10">
         <a
           href="#top"
-          className={`text-[1.05rem] font-semibold tracking-[-0.02em] transition-colors duration-500 ${
+          className={`flex flex-col leading-none transition-colors duration-500 ${
             solid ? "text-foreground" : "text-softwhite"
           }`}
         >
-          Surya<span className="text-gold">Grid</span>
+          <span className="text-[1.05rem] font-semibold tracking-[-0.02em]">
+            Mahalaxmi Solar <span className="text-gold">Service</span>
+          </span>
+          <span className="mt-0.5 hidden text-[0.65rem] font-medium tracking-[0.12em] text-softwhite/60 uppercase sm:inline-block">
+            Authorised Distributor for Rajasthan
+          </span>
         </a>
 
         <nav className="hidden items-center gap-10 md:flex">

@@ -16,17 +16,17 @@ import { FinalCTA, Footer, MobileQuoteBar } from "@/components/home/Closing";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "SuryaGrid — Solar Installation for Homes & Businesses in India" },
+      { title: "Mahalaxmi Solar Service — Solar Installation for Homes & Businesses in Rajasthan" },
       {
         name: "description",
         content:
-          "High-performance solar systems designed, installed and supported for homes and businesses across Rajasthan. Residential, commercial and industrial solar by SuryaGrid.",
+          "High-performance solar systems designed, installed and supported for homes and businesses across Rajasthan. Residential, commercial and industrial solar by Mahalaxmi Solar Service.",
       },
-      { property: "og:title", content: "SuryaGrid — Power your property. Own your energy." },
+      { property: "og:title", content: "Mahalaxmi Solar Service — Power your property. Own your energy." },
       {
         property: "og:description",
         content:
-          "Premium residential, commercial and industrial solar design and installation in India.",
+          "Premium residential, commercial and industrial solar design and installation in Rajasthan.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
