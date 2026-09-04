@@ -99,8 +99,11 @@ export function Footer() {
         <div className="grid gap-12 md:grid-cols-12">
           <div className="md:col-span-5">
             <div className="text-[1.15rem] font-semibold tracking-[-0.02em]">
-              Surya<span className="text-gold">Grid</span>
+              Mahalaxmi Solar <span className="text-gold">Service</span>
             </div>
+            <p className="mt-2 text-[0.72rem] font-medium tracking-[0.1em] text-softwhite/50 uppercase">
+              Authorised Distributor for Rajasthan
+            </p>
             <p className="mt-5 max-w-xs text-[0.92rem] leading-relaxed text-softwhite/60">
               Solar designed, installed and supported for homes and businesses.
             </p>
@@ -128,7 +131,7 @@ export function Footer() {
         </div>
 
         <div className="mt-16 flex flex-wrap items-center justify-between gap-4 border-t border-softwhite/15 pt-6 text-[0.8rem] text-softwhite/45">
-          <span>© {new Date().getFullYear()} SuryaGrid</span>
+          <span>© {new Date().getFullYear()} Mahalaxmi Solar Service</span>
           <div className="flex gap-6">
             <a href="#top" className="hover:text-softwhite">
               Privacy
