@@ -23,12 +23,17 @@ export function Nav() {
     >
       <div className="mx-auto flex max-w-[1440px] items-center justify-between px-6 md:px-10">
         <a
-          href={PHONE_HREF}
-          className={`link-underline text-[0.9rem] font-medium transition-colors duration-300 ${
-            solid ? "text-foreground hover:text-gold" : "text-softwhite/85 hover:text-softwhite"
+          href="#top"
+          className={`flex flex-col leading-none transition-colors duration-500 ${
+            solid ? "text-foreground" : "text-softwhite"
           }`}
         >
-          Talk to an Expert <span aria-hidden>→</span>
+          <span className="text-[1.05rem] font-semibold tracking-[-0.02em]">
+            Mahalaxmi Solar <span className="text-gold">Service</span>
+          </span>
+          <span className="mt-0.5 hidden text-[0.65rem] font-medium tracking-[0.12em] text-softwhite/60 uppercase sm:inline-block">
+            Authorised Distributor for Rajasthan
+          </span>
         </a>
 
         <nav className="hidden items-center gap-10 md:flex">
