@@ -1,32 +1,30 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Nav } from "@/components/Nav";
 import { Hero } from "@/components/home/Hero";
-import {
-  Statement,
-  Trust,
-  Solutions,
-  Engineering,
-  Projects,
-  Savings,
-  Process,
-  Testimonial,
-} from "@/components/home/Sections";
-import { FinalCTA, Footer, MobileQuoteBar } from "@/components/home/Closing";
+import { Prelude } from "@/components/home/Prelude";
+import { Solutions } from "@/components/home/Solutions";
+import { SuryaGhar } from "@/components/home/SuryaGhar";
+import { Services } from "@/components/home/Services";
+import { Journey } from "@/components/home/Journey";
+import { About } from "@/components/home/About";
+import { Brands } from "@/components/home/Brands";
+import { Projects } from "@/components/home/Projects";
+import { Testimonials } from "@/components/home/Testimonials";
+import { Contact, Footer, MobileQuoteBar } from "@/components/home/Closing";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Mahalaxmi Solar Service — Solar Installation for Homes & Businesses in Rajasthan" },
+      { title: "Mahalaxmi Solar Service | Residential, Commercial & Industrial Solar in Jaipur" },
       {
         name: "description",
         content:
-          "High-performance solar systems designed, installed and supported for homes and businesses across Rajasthan. Residential, commercial and industrial solar by Mahalaxmi Solar Service.",
+          "Solar installation in Jaipur since 2011 for homes, businesses and industry. Solar EPC, rooftop and ground-mounted, on-grid and hybrid systems, PM Surya Ghar subsidy assistance, electricity-board work and 1 year free AMC.",
       },
-      { property: "og:title", content: "Mahalaxmi Solar Service — Power your property. Own your energy." },
+      { property: "og:title", content: "Mahalaxmi Solar Service | Complete Solar Solutions" },
       {
         property: "og:description",
-        content:
-          "Premium residential, commercial and industrial solar design and installation in Rajasthan.",
+        content: "Residential, commercial and industrial solar installation in Jaipur since 2011.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -37,20 +35,23 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <main className="bg-softwhite">
+    <>
       <Nav />
-      <Hero />
-      <Statement />
-      <Trust />
-      <Solutions />
-      <Engineering />
-      <Projects />
-      <Savings />
-      <Process />
-      <Testimonial />
-      <FinalCTA />
+      <main>
+        <Hero />
+        <Prelude />
+        <Solutions />
+        <SuryaGhar />
+        <Services />
+        <Journey />
+        <About />
+        <Brands />
+        <Projects />
+        <Testimonials />
+        <Contact />
+      </main>
       <Footer />
       <MobileQuoteBar />
-    </main>
+    </>
   );
 }

@@ -1,40 +1,27 @@
-import { useEffect, useRef, useState, type ElementType, type ReactNode } from "react";
+import type { ElementType, ReactNode } from "react";
+import { useInView } from "@/hooks/use-in-view";
 
 export function Reveal({
   children,
   className = "",
   delay = 0,
+  variant = "up",
   as: Tag = "div",
 }: {
   children: ReactNode;
   className?: string;
   delay?: number;
+  variant?: "up" | "fade" | "clip";
   as?: ElementType;
 }) {
-  const ref = useRef<HTMLElement>(null);
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const io = new IntersectionObserver(
-      ([entry]) => {
-        if (entry?.isIntersecting) {
-          setVisible(true);
-          io.disconnect();
-        }
-      },
-      { threshold: 0.15, rootMargin: "0px 0px -8% 0px" },
-    );
-    io.observe(el);
-    return () => io.disconnect();
-  }, []);
+  const [ref, visible] = useInView<HTMLElement>();
 
   return (
     <Tag
       ref={ref}
       data-visible={visible}
-      style={{ transitionDelay: `${delay}ms` }}
+      data-variant={variant}
+      style={delay ? { transitionDelay: `${delay}ms` } : undefined}
       className={`reveal ${className}`}
     >
       {children}
