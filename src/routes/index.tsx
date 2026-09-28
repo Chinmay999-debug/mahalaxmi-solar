@@ -11,6 +11,7 @@ import { Brands } from "@/components/home/Brands";
 import { Projects } from "@/components/home/Projects";
 import { Testimonials } from "@/components/home/Testimonials";
 import { Contact, Footer, MobileQuoteBar } from "@/components/home/Closing";
+import { SITE_URL } from "@/lib/contact";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -27,8 +28,17 @@ export const Route = createFileRoute("/")({
         content: "Residential, commercial and industrial solar installation in Jaipur since 2011.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:site_name", content: "Mahalaxmi Solar Service" },
+      { property: "og:url", content: SITE_URL },
+      { property: "og:image", content: `${SITE_URL}og-image.jpg` },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:image:alt", content: "Mahalaxmi Solar Service — Complete solar solutions" },
+      { property: "og:locale", content: "en_IN" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: `${SITE_URL}og-image.jpg` },
     ],
+    links: [{ rel: "canonical", href: SITE_URL }],
   }),
   component: Index,
 });

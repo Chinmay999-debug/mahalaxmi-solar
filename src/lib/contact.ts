@@ -6,6 +6,8 @@ export const EMAIL_DISPLAY = "hello@mahalaxmisolar.in";
 export const EMAIL_HREF = "mailto:hello@mahalaxmisolar.in";
 export const LOCATION = "Jaipur, Rajasthan";
 export const FOUNDED = 2011;
+/** Public address of the live site (GitHub Pages). Used for share previews and canonical URL. */
+export const SITE_URL = "https://chinmay999-debug.github.io/mahalaxmi-solar/";
 
 /** WhatsApp deep link with a pre-filled message. */
 export function whatsappLink(message?: string) {
