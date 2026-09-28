@@ -18,16 +18,33 @@ export function Nav() {
   const lastY = useRef(0);
 
   useEffect(() => {
-    const onScroll = () => {
-      const y = window.scrollY;
+    let raf = 0;
+    const update = () => {
+      raf = 0;
+      // iOS rubber-banding reports negative / past-the-end offsets; clamp them
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      const y = Math.min(Math.max(window.scrollY, 0), Math.max(max, 0));
       setSolid(y > 40);
-      setHidden(y > 600 && y > lastY.current + 4);
-      if (y < lastY.current - 4 || y < 600) setHidden(false);
+      if (y < 320) {
+        setHidden(false);
+        lastY.current = y;
+        return;
+      }
+      // Only react to a deliberate change of direction, not per-event jitter
+      const dy = y - lastY.current;
+      if (Math.abs(dy) < 12) return;
+      setHidden(dy > 0);
       lastY.current = y;
     };
-    onScroll();
+    const onScroll = () => {
+      if (!raf) raf = requestAnimationFrame(update);
+    };
+    update();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener("scroll", onScroll);
+    };
   }, []);
 
   useEffect(() => {
@@ -47,8 +64,8 @@ export function Nav() {
         } ${solid && !open ? "bg-paper/90 shadow-[0_1px_0_var(--border)] backdrop-blur-md" : ""}`}
       >
         <div
-          className={`shell flex items-center justify-between transition-[height] duration-700 ease-out-expo ${
-            solid ? "h-[68px]" : "h-[84px]"
+          className={`shell flex h-[68px] items-center justify-between transition-[height] duration-700 ease-out-expo ${
+            solid ? "" : "lg:h-[84px]"
           }`}
         >
           <a
