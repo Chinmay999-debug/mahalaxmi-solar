@@ -13,6 +13,13 @@ import waareeLogo from "@/assets/brands/waaree.png";
 import adaniLogo from "@/assets/brands/adani.svg";
 import rayzonLogo from "@/assets/brands/rayzon.png";
 
+import vijayPath1 from "@/assets/projects/vijay-path-1.jpeg";
+import vijayPath2 from "@/assets/projects/vijay-path-2.jpeg";
+import vijayPath3 from "@/assets/projects/vijay-path-3.jpeg";
+import swejFarm from "@/assets/projects/swej-farm.jpeg";
+import jaisinghpuraKhor1 from "@/assets/projects/jaisinghpura-khor-1.jpeg";
+import jaisinghpuraKhor2 from "@/assets/projects/jaisinghpura-khor-2.jpeg";
+
 export type Brand = {
   /** Official brand name — used for alt text */
   name: string;
@@ -45,6 +52,8 @@ export type Project = {
   image: string;
   /** Short description of the photo for screen readers */
   alt: string;
+  /** Additional photos for this project */
+  gallery?: { image: string; alt: string }[];
   /** "Residential" | "Commercial" | "Industrial" */
   type?: string;
   /** Confirmed system size, written as it should appear, e.g. "10 kW" */
@@ -63,7 +72,48 @@ export type Project = {
  * imagery (IMAGERY_UNTIL_PROJECTS) with a "portfolio coming soon" note.
  * As soon as one real project is added, that treatment disappears.
  */
-export const PROJECTS: Project[] = [];
+export const PROJECTS: Project[] = [
+  {
+    image: vijayPath1,
+    alt: "10 kW residential solar installation at Vijay Path, Mansarovar, Jaipur - View 1",
+    gallery: [
+      {
+        image: vijayPath2,
+        alt: "10 kW residential solar installation at Vijay Path, Mansarovar, Jaipur - View 2",
+      },
+      {
+        image: vijayPath3,
+        alt: "10 kW residential solar installation at Vijay Path, Mansarovar, Jaipur - View 3",
+      },
+    ],
+    type: "Residential",
+    capacity: "10 kW",
+    location: "Vijay Path, Mansarovar, Jaipur",
+    title: "10 kW Residential Solar Installation",
+  },
+  {
+    image: swejFarm,
+    alt: "125 kW commercial solar installation at Hotel, Swei Farm, Sodala",
+    type: "Commercial",
+    capacity: "125 kW",
+    location: "Hotel, Swei Farm, Sodala",
+    title: "125 kW Commercial Solar Installation",
+  },
+  {
+    image: jaisinghpuraKhor1,
+    alt: "5 kW residential solar installation at Jaisinghpura Khor, Jaipur - View 1",
+    gallery: [
+      {
+        image: jaisinghpuraKhor2,
+        alt: "5 kW residential solar installation at Jaisinghpura Khor, Jaipur - View 2",
+      },
+    ],
+    type: "Residential",
+    capacity: "5 kW",
+    location: "Jaisinghpura Khor, Jaipur",
+    title: "5 kW Residential Solar Installation",
+  },
+];
 
 /** Uncaptioned imagery used only while PROJECTS is empty. Never labelled as projects. */
 export const IMAGERY_UNTIL_PROJECTS: { image: string; alt: string }[] = [

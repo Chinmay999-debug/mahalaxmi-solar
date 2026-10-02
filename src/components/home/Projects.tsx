@@ -84,6 +84,16 @@ export function Projects() {
 
   const items = hasProjects ? PROJECTS : IMAGERY_UNTIL_PROJECTS;
 
+  const flattenedItems = items.flatMap((p, projectIndex) => {
+    if ("gallery" in p && p.gallery) {
+      return [
+        { image: p.image, alt: p.alt, isFirst: true, projectIndex, project: p },
+        ...p.gallery.map((g) => ({ ...g, isFirst: false, projectIndex, project: p })),
+      ];
+    }
+    return [{ image: p.image, alt: p.alt, isFirst: true, projectIndex, project: p }];
+  });
+
   return (
     <section id="projects" className="bg-paper text-ink">
       <div className="shell pt-24 md:pt-36">
@@ -159,20 +169,22 @@ export function Projects() {
         {...handlers}
         className="no-scrollbar mt-12 flex cursor-grab snap-x snap-mandatory items-start gap-4 overflow-x-auto pb-24 select-none active:cursor-grabbing [padding-inline:max(1.25rem,calc((100vw-1440px)/2+1.25rem))] [scroll-padding-inline:max(1.25rem,calc((100vw-1440px)/2+1.25rem))] md:mt-16 md:gap-6 md:pb-36 md:[padding-inline:max(2.5rem,calc((100vw-1440px)/2+2.5rem))] md:[scroll-padding-inline:max(2.5rem,calc((100vw-1440px)/2+2.5rem))] xl:[padding-inline:max(3.5rem,calc((100vw-1440px)/2+3.5rem))] xl:[scroll-padding-inline:max(3.5rem,calc((100vw-1440px)/2+3.5rem))]"
       >
-        {items.map((p, i) => (
-          <figure key={`${p.alt}-${i}`} className="shrink-0 snap-start">
+        {flattenedItems.map((item, i) => (
+          <figure key={`${item.alt}-${i}`} className="shrink-0 snap-start">
             <div
               className={`media max-w-[86vw] overflow-hidden rounded-[2px] bg-ink/5 ${frame} ${crops[i % crops.length]}`}
             >
               <img
-                src={p.image}
-                alt={p.alt}
+                src={item.image}
+                alt={item.alt}
                 loading="lazy"
                 draggable={false}
                 className="h-full w-full object-cover"
               />
             </div>
-            {hasProjects && <Caption p={p as Project} index={i} />}
+            {hasProjects && item.isFirst && (
+              <Caption p={item.project as Project} index={item.projectIndex} />
+            )}
           </figure>
         ))}
 

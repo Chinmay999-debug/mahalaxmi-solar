@@ -122,10 +122,8 @@ Muted Text:
 
 The dominant visual identity should be:
 
-DEEP NAVY
-+
-WARM IVORY
-+
+DEEP NAVY +
+WARM IVORY +
 SOLAR GOLD
 
 Do NOT make green the dominant color.
@@ -237,10 +235,8 @@ Do NOT put multiple cards, badges, statistics or floating elements in the hero.
 
 The hero should be:
 
-IMAGE
-+
-TYPOGRAPHY
-+
+IMAGE +
+TYPOGRAPHY +
 ONE STRONG CTA
 
 That's it.

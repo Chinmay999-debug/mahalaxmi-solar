@@ -23,12 +23,6 @@ export function Brands() {
           </div>
         </div>
       </Reveal>
-
-      <div className="shell pt-5 pb-20 md:pb-28">
-        <p className="text-[0.85rem] text-ink/45">
-          Logos and trademarks belong to their respective owners.
-        </p>
-      </div>
     </section>
   );
 }
