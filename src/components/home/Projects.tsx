@@ -85,7 +85,7 @@ export function Projects() {
   const items = hasProjects ? PROJECTS : IMAGERY_UNTIL_PROJECTS;
 
   const flattenedItems = items.flatMap((p, projectIndex) => {
-    if ("gallery" in p && p.gallery) {
+    if ("gallery" in p && Array.isArray(p.gallery)) {
       return [
         { image: p.image, alt: p.alt, isFirst: true, projectIndex, project: p },
         ...p.gallery.map((g) => ({ ...g, isFirst: false, projectIndex, project: p })),
@@ -172,7 +172,7 @@ export function Projects() {
         {flattenedItems.map((item, i) => (
           <figure key={`${item.alt}-${i}`} className="shrink-0 snap-start">
             <div
-              className={`media max-w-[86vw] overflow-hidden rounded-[2px] bg-ink/5 ${frame} ${crops[i % crops.length]}`}
+              className={`media max-w-[86vw] overflow-hidden rounded-[2px] bg-ink/5 ${frame} ${item.isFirst ? "aspect-[3/2]" : "aspect-[4/5]"}`}
             >
               <img
                 src={item.image}

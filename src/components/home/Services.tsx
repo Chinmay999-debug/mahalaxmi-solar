@@ -29,7 +29,10 @@ const groups = [
     items: [
       ["PM Surya Ghar & Subsidy", "Help with the PM Surya Ghar subsidy process for homes."],
       ["Electricity Board Work", "Applications and paperwork with the electricity board."],
-      ["AMC & After-Sales", "One year of free AMC after installation, and service after that."],
+      [
+        "AMC & After-Sales",
+        "After-sales support and maintenance assistance, with panel cleaning available on request.",
+      ],
     ],
   },
 ];

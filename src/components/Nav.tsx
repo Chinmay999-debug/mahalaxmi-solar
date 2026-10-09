@@ -72,7 +72,7 @@ export function Nav() {
             href="#top"
             aria-label="Mahalaxmi Solar Service — home"
             onClick={() => setOpen(false)}
-            className={`relative z-10 transition-colors duration-500 ${light || open ? "text-paper" : "text-ink"}`}
+            className="relative z-10 flex items-center transition-opacity duration-300 hover:opacity-90"
           >
             <Wordmark tone={light || open ? "light" : "dark"} />
           </a>

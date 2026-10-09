@@ -2,15 +2,7 @@ import { useEffect, useRef, useState, type FormEvent } from "react";
 import dusk from "@/assets/cta-dusk.jpg";
 import { Reveal } from "@/components/Reveal";
 import { Arrow, CTA, Marker, Wordmark } from "@/components/brand";
-import {
-  EMAIL_DISPLAY,
-  EMAIL_HREF,
-  LOCATION,
-  PHONE_DISPLAY,
-  PHONE_HREF,
-  WHATSAPP_HREF,
-  whatsappLink,
-} from "@/lib/contact";
+import { LOCATION, PHONE_DISPLAY, PHONE_HREF, WHATSAPP_HREF, whatsappLink } from "@/lib/contact";
 
 const PROPERTY_TYPES = ["Home", "Business", "Industry"] as const;
 
@@ -238,12 +230,6 @@ export function Contact() {
               </CTA>
             </div>
             <div>
-              <p className="label text-paper/50">Email</p>
-              <a href={EMAIL_HREF} className="link-line mt-2 text-[1.05rem]">
-                {EMAIL_DISPLAY}
-              </a>
-            </div>
-            <div>
               <p className="label text-paper/50">Based in</p>
               <p className="mt-2 text-[1.05rem]">{LOCATION}</p>
             </div>
@@ -286,7 +272,6 @@ const footerCols = [
     items: [
       { label: PHONE_DISPLAY, href: PHONE_HREF },
       { label: "WhatsApp", href: WHATSAPP_HREF },
-      { label: EMAIL_DISPLAY, href: EMAIL_HREF },
     ],
   },
 ];
@@ -297,7 +282,7 @@ export function Footer() {
       <div className="shell pt-20 pb-10 md:pt-28">
         <div className="grid gap-12 md:grid-cols-12">
           <div className="md:col-span-4">
-            <Wordmark tone="light" />
+            <Wordmark tone="light" className="h-10 md:h-11" />
             <p className="mt-6 max-w-[30ch] text-[1rem] leading-relaxed text-paper/60">
               Solar installation, subsidy assistance and AMC for homes, businesses and industry in
               Jaipur.

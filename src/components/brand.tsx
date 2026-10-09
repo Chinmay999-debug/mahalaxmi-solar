@@ -11,23 +11,27 @@ export function SunMark({ className = "" }: { className?: string }) {
   );
 }
 
-export function Wordmark({ tone = "dark" }: { tone?: "dark" | "light" }) {
+const LOGO_SRC = `${import.meta.env.BASE_URL}assets/logo.png`;
+
+/**
+ * Client's official solar symbol.
+ * Contains only the solar artwork (sun, panels, wave) — no company name or tagline.
+ */
+export function Wordmark({ className = "" }: { tone?: "dark" | "light"; className?: string }) {
   return (
-    <span className="flex items-center gap-2.5">
-      <SunMark className={`h-7 w-7 ${tone === "light" ? "text-paper" : "text-ink"}`} />
-      <span className="flex flex-col leading-none">
-        <span className="display text-[1.45rem] tracking-[-0.01em]">Mahalaxmi</span>
-        <span
-          className={`mt-[3px] text-[0.64rem] font-medium tracking-[0.14em] uppercase ${
-            tone === "light" ? "text-paper/60" : "text-ink/55"
-          }`}
-        >
-          Solar Service
-        </span>
-      </span>
-    </span>
+    <img
+      src={LOGO_SRC}
+      alt="Mahalaxmi Solar Service"
+      width={827}
+      height={476}
+      className={`h-9 w-auto object-contain md:h-10 ${className}`}
+      loading="eager"
+      decoding="async"
+    />
   );
 }
+
+export const Logo = Wordmark;
 
 export function Arrow({ className = "" }: { className?: string }) {
   return (

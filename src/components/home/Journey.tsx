@@ -18,7 +18,10 @@ const STEPS = [
     "PM Surya Ghar subsidy paperwork and electricity-board applications.",
   ],
   ["Commissioning", "The system is tested, switched on and handed over to you."],
-  ["AMC & After-Sales", "One year of free AMC, and service whenever you need it after that."],
+  [
+    "AMC & After-Sales",
+    "After-sales support and maintenance assistance, with panel cleaning available on request.",
+  ],
 ] as const;
 
 const N = STEPS.length;

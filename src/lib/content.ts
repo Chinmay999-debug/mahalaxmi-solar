@@ -19,6 +19,8 @@ import vijayPath3 from "@/assets/projects/vijay-path-3.jpeg";
 import swejFarm from "@/assets/projects/swej-farm.jpeg";
 import jaisinghpuraKhor1 from "@/assets/projects/jaisinghpura-khor-1.jpeg";
 import jaisinghpuraKhor2 from "@/assets/projects/jaisinghpura-khor-2.jpeg";
+import aatishMarket1 from "@/assets/projects/aatish-market-1.jpeg";
+import aatishMarket2 from "@/assets/projects/aatish-market-2.jpeg";
 
 export type Brand = {
   /** Official brand name — used for alt text */
@@ -112,6 +114,20 @@ export const PROJECTS: Project[] = [
     capacity: "5 kW",
     location: "Jaisinghpura Khor, Jaipur",
     title: "5 kW Residential Solar Installation",
+  },
+  {
+    image: aatishMarket1,
+    alt: "8 kW commercial solar installation at Aatish Market, Mansarovar, Jaipur",
+    gallery: [
+      {
+        image: aatishMarket2,
+        alt: "8 kW commercial solar installation at Aatish Market, Mansarovar, Jaipur - Street view",
+      },
+    ],
+    type: "Commercial",
+    capacity: "8 kW",
+    location: "Aatish Market, Mansarovar, Jaipur",
+    title: "Commercial Solar Installation — 8 kW",
   },
 ];
 
