@@ -3,7 +3,7 @@ import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
 const out = "dist/client";
-const base = "/mahalaxmi-solar/";
+const base = "/";
 const index = join(out, "index.html");
 
 if (!existsSync(index)) {
@@ -17,6 +17,9 @@ if (!readFileSync(index, "utf8").includes(`${base}assets/`)) {
 
 // Serve files as-is (no Jekyll processing).
 writeFileSync(join(out, ".nojekyll"), "");
+
+// Keep the custom domain on every deploy (a deploy without CNAME removes it).
+writeFileSync(join(out, "CNAME"), "mahalaxmisolarservice.com\n");
 
 // The site is a single page: send unknown paths back to the home page.
 writeFileSync(
