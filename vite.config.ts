@@ -7,9 +7,9 @@
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 // GitHub Pages build (`npm run build:pages`): a fully static, prerendered site served from
-// https://chinmay999-debug.github.io/mahalaxmi-solar/. Lovable builds and dev are unaffected.
+// https://mahalaxmisolarservice.com/ (custom domain). Lovable builds and dev are unaffected.
 const githubPages = process.env["GITHUB_PAGES"] === "true";
-const PAGES_BASE = "/mahalaxmi-solar/";
+const PAGES_BASE = "/";
 
 export default defineConfig({
   tanstackStart: {
