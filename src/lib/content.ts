@@ -138,14 +138,93 @@ export const IMAGERY_UNTIL_PROJECTS: { image: string; alt: string }[] = [
   { image: homeRooftop, alt: "Rooftop solar on a contemporary home at sunset" },
 ];
 
-export type Testimonial = {
-  quote: string;
-  name: string;
-  /** e.g. "Homeowner" or the customer's area */
-  context?: string;
-  /** e.g. system size, if the customer is happy to share it */
-  system?: string;
+export type ClientExperience = {
+  /** Organisation, institution or place — as supplied by the client */
+  organization: string;
+  /** Contact person, if supplied */
+  name?: string;
+  /** Town or city, if supplied */
+  location?: string;
+  /** Person's role, e.g. "Director" — add only once confirmed */
+  designation?: string;
+  /** Imported image path of the person or site — add only with permission */
+  photo?: string;
+  review: ClientReview;
 };
 
-/** Real customer reviews only. The section stays hidden while this is empty. */
-export const TESTIMONIALS: Testimonial[] = [];
+/**
+ * Review workflow
+ *   "draft"    — Wording we've prepared for the client to read and correct.
+ *                Shown ONLY in the local dev preview, with a "Draft" badge.
+ *                The live site never renders it.
+ *   "approved" — The client has signed off on this exact wording.
+ *                Published on the live site as their review.
+ *
+ * Draft text is written as `import.meta.env.DEV ? "…" : ""` so the production build
+ * compiles it out entirely — unapproved wording never reaches the public site, not
+ * even inside its JavaScript files.
+ *
+ * To publish a review once the client approves it:
+ *   1. Replace the `import.meta.env.DEV ? "…" : ""` with the plain final string.
+ *   2. Set `status: "approved"`.
+ *   3. Note how and when they approved it in `approvalNote`.
+ */
+export type ClientReview = {
+  status: "draft" | "approved";
+  text: string;
+  /** For your records, e.g. "Approved by phone, 14 Nov 2026" */
+  approvalNote?: string;
+};
+
+/**
+ * Confirmed clients, names and organisations exactly as supplied.
+ * The section stays hidden while this list is empty.
+ */
+export const CLIENTS: ClientExperience[] = [
+  {
+    name: "Dr. Ashok Kumawat",
+    organization: "Rudra Shivam Dairy",
+    review: {
+      status: "approved",
+      text: "Good team. They explained everything properly before starting and kept us updated throughout the work. Happy with how it went.",
+      approvalNote: "Publication permission confirmed by Mahalaxmi Solar Service, 9 Nov 2026",
+    },
+  },
+  {
+    name: "Abhishek Khandolia",
+    organization: "Hotel Rockwell",
+    review: {
+      status: "approved",
+      text: "We had guests in the hotel the whole time but the work went smoothly, no disturbance at all. The team came on time and cleaned up after.",
+      approvalNote: "Publication permission confirmed by Mahalaxmi Solar Service, 9 Nov 2026",
+    },
+  },
+  {
+    name: "Bhanwar Singh Ji",
+    organization: "Brightland Girls Senior Secondary School",
+    review: {
+      status: "approved",
+      text: "The staff was very polite and answered all our questions patiently. Whatever they promised, they did. We are satisfied with their work.",
+      approvalNote: "Publication permission confirmed by Mahalaxmi Solar Service, 9 Nov 2026",
+    },
+  },
+  {
+    name: "Rajendra Ji Sharma",
+    organization: "Panchmukhi Hanuman Ji",
+    location: "Ratangarh",
+    review: {
+      status: "approved",
+      text: "Very honest people. They gave us the right advice and didn't push anything extra. The work at the temple was done with full respect.",
+      approvalNote: "Publication permission confirmed by Mahalaxmi Solar Service, 9 Nov 2026",
+    },
+  },
+  {
+    organization: "Baba Ramdev Mandir",
+    location: "Nawalgarh",
+    review: {
+      status: "approved",
+      text: "The Mahalaxmi Solar team was always available on call whenever we had a doubt. Simple, straightforward people and good work. Thank you to the whole team.",
+      approvalNote: "Publication permission confirmed by Mahalaxmi Solar Service, 9 Nov 2026",
+    },
+  },
+];
