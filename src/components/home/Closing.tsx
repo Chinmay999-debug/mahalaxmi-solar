@@ -2,7 +2,15 @@ import { useEffect, useRef, useState, type FormEvent } from "react";
 import dusk from "@/assets/cta-dusk.jpg";
 import { Reveal } from "@/components/Reveal";
 import { Arrow, CTA, Marker, Wordmark } from "@/components/brand";
-import { LOCATION, PHONE_DISPLAY, PHONE_HREF, WHATSAPP_HREF, whatsappLink } from "@/lib/contact";
+import {
+  LOCATION,
+  PHONE_2_DISPLAY,
+  PHONE_2_HREF,
+  PHONE_DISPLAY,
+  PHONE_HREF,
+  WHATSAPP_HREF,
+  whatsappLink,
+} from "@/lib/contact";
 
 const PROPERTY_TYPES = ["Home", "Business", "Industry"] as const;
 
@@ -216,6 +224,12 @@ export function Contact() {
               >
                 {PHONE_DISPLAY}
               </a>
+              <a
+                href={PHONE_2_HREF}
+                className="display mt-3 block text-[clamp(1.9rem,3vw,2.5rem)] leading-none transition-colors hover:text-gold"
+              >
+                {PHONE_2_DISPLAY}
+              </a>
             </div>
             <div>
               <p className="label text-paper/50">WhatsApp</p>
@@ -271,6 +285,7 @@ const footerCols = [
     title: "Contact",
     items: [
       { label: PHONE_DISPLAY, href: PHONE_HREF },
+      { label: PHONE_2_DISPLAY, href: PHONE_2_HREF },
       { label: "WhatsApp", href: WHATSAPP_HREF },
     ],
   },

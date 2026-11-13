@@ -1,5 +1,7 @@
 export const PHONE_DISPLAY = "+91 82909 88831";
 export const PHONE_HREF = "tel:+918290988831";
+export const PHONE_2_DISPLAY = "+91 98752 33081";
+export const PHONE_2_HREF = "tel:+919875233081";
 export const WHATSAPP_NUMBER = "918290988831";
 export const WHATSAPP_HREF = `https://wa.me/${WHATSAPP_NUMBER}`;
 export const LOCATION = "Jaipur, Rajasthan";
